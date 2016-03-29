@@ -10,7 +10,6 @@
   <body>
     <!-- Container to render React Components -->
     <div id="app-container"></div>
-    <script type="text/babel" src="scripts/example.js"></script>
     <script type="text/babel">
       /* Top level component */
       class App extends React.Component {
@@ -26,11 +25,20 @@
       /* Render CommentBox component with three comments */
       class CommentBox extends React.Component {
         render() {
+          // Mock data returned from some AJAX call
+          let commentsData = [
+            {text: 'I am comment 1'},
+            {text: 'I am comment 2'},
+            {text: 'I am comment 3'}
+          ];
+
           return (
             <ul>
-              <li>comment1</li>
-              <li>comment2</li>
-              <li>comment3</li>
+              {commentsData.map((comment, i) => {
+                return (
+                  <li key={i}>{comment.text}</li>
+                );
+              })}
             </ul>
           );
         }
