@@ -12,17 +12,32 @@
     <div id="app-container"></div>
     <script type="text/babel" src="scripts/example.js"></script>
     <script type="text/babel">
-      /* Add JS code here */
-      class FirstComponent extends React.Component {
+      /* Top level component */
+      class App extends React.Component {
         render() {
           return (
-            <div>Hello I am a component</div>
+            <div>
+              <CommentBox/>
+            </div>
           );
         }
       }
 
-      /* Render FirstComponent to div with ID app-container */
-      ReactDOM.render(<FirstComponent/>, document.getElementById('app-container'));
+      /* Render CommentBox component with three comments */
+      class CommentBox extends React.Component {
+        render() {
+          return (
+            <ul>
+              <li>comment1</li>
+              <li>comment2</li>
+              <li>comment3</li>
+            </ul>
+          );
+        }
+      }
+
+      /* Render App to div with ID app-container */
+      ReactDOM.render(<App/>, document.getElementById('app-container'));
     </script>
   </body>
 </html>
