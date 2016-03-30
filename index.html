@@ -26,15 +26,15 @@
       class CommentBox extends React.Component {
         render() {
           // Mock data returned from some AJAX call
-          let commentsData = [
-            {text: 'I am comment 1'},
-            {text: 'I am comment 2'},
-            {text: 'I am comment 3'}
+          let comments = [
+            {text: 'I am number 1'},
+            {text: 'Sandwiched in the middle'},
+            {text: 'Better late than never'}
           ];
 
           return (
             <ul>
-              {commentsData.map((comment, i) => {
+              {comments.map((comment, i) => {
                 return (
                   <li key={i}>{comment.text}</li>
                 );
