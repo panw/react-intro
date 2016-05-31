@@ -8,10 +8,15 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
   </head>
   <body>
-    <!-- Container to render React Components -->
-    <div id="app-container"></div>
+    <div id="app-container">
+      <!-- Container to render React Components -->
+    </div>
+
+    <!-- React/JS -->
     <script type="text/babel">
-      /* Top level component */
+      /*
+        Top level component that holds the CommentBox component
+      */
       class App extends React.Component {
         render() {
           return (
@@ -22,7 +27,6 @@
         }
       }
 
-      /* Render CommentBox component with three comments */
       class CommentBox extends React.Component {
         render() {
           // Mock data returned from some AJAX call
@@ -32,6 +36,19 @@
             {text: 'Better late than never'}
           ];
 
+          /*
+            In JSX, we are able to inject JS variables and logic
+            similary to other templating language (erb <% %>, handlebars {{ }}).
+
+            To do this curly brackets `{ }` are used.
+
+            If we have an objective to display a list of comments. Below we
+            can take advantage of the interpolation and injecting a loop
+            that iterates over a collection of comments and return a collection
+            of <li> components.
+
+            Also notice the key prop on each <li>. Look up what key props is for.
+          */
           return (
             <ul>
               {comments.map((comment, i) => {
