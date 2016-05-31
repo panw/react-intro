@@ -8,12 +8,30 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-core/5.8.23/browser.min.js"></script>
   </head>
   <body>
-    <!-- Container to render React Components -->
-    <div id="app-container"></div>
+
+    <div id="app-container">
+      <!--
+        Container to render React Components.
+        At least a single DOM node is needed as a placeholder
+        to render React virtual DOM (read about virtual DOM).
+      -->
+    </div>
+
+    <!-- React/JS Code -->
     <script type="text/babel">
+      /*
+        In this part, we create a component that is nested
+        inside another component.
+      */
+
       /* Top level component */
       class App extends React.Component {
         render() {
+          /*
+            <CommentBox/> references the CommentBox component.
+            When we created a component, it is similar to creating
+            a personal HTML tag.
+          */
           return (
             <div>
               <CommentBox/>
@@ -22,7 +40,7 @@
         }
       }
 
-      /* Render CommentBox component with three comments */
+      /* Render CommentBox component with three hard coded comments */
       class CommentBox extends React.Component {
         render() {
           return (
@@ -35,7 +53,10 @@
         }
       }
 
-      /* Render App to div with ID app-container */
+      /*
+        Use ReactDOM to render App component to div with ID app-container.
+        The <App/> refers to the App component.
+      */
       ReactDOM.render(<App/>, document.getElementById('app-container'));
     </script>
   </body>
